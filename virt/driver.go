@@ -219,7 +219,7 @@ func (d *VirtDriverPlugin) SetConfig(cfg *base.Config) error {
 	}
 
 	// Initialize Cloud Hypervisor driver with config
-	v := cloudhypervisor.NewWithSkipValidation(d.baseCtx, d.logger, &d.config.CloudHypervisor, &d.config.Network, &d.config.VFIO, d.dataDir, true)
+	v := cloudhypervisor.NewWithSkipValidation(d.baseCtx, d.logger, &d.config.CloudHypervisor, &d.config.Network, &d.config.VFIO, d.dataDir, false)
 	d.virtualizer = v
 	d.taskGetter = v
 
