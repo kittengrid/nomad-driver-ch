@@ -283,7 +283,7 @@ func (d *Driver) buildVMConfig(config *domain.Config, proc *VMProcess) (*VMConfi
 			Shared: true,                               // Required for virtio-fs
 		},
 		Console: ConsoleConfig{Mode: "Null"}, // Disable console
-		Serial:  SerialConfig{Mode: "File", File: filepath.Join(proc.WorkDir, "serial.log")},
+		Serial:  SerialConfig{Mode: "socket", File: filepath.Join(proc.WorkDir, "serial.sock")},
 	}
 
 	// Set kernel/initramfs/cmdline - ALWAYS REQUIRED for Cloud Hypervisor
